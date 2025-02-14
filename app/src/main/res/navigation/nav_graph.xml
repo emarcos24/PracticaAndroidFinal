@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/fragmentoLiga">
+
+    <fragment
+        android:id="@+id/fragmentoLiga"
+        android:name="com.euroformac.practicafinal.fragmentoLiga"
+        android:label="fragment_fragmento_liga"
+        tools:layout="@layout/fragment_fragmento_liga" />
+    <fragment
+        android:id="@+id/fragmentoEquipo"
+        android:name="com.euroformac.practicafinal.fragmentoEquipo"
+        android:label="fragment_fragmento_equipo"
+        tools:layout="@layout/fragment_fragmento_equipo" />
+    <fragment
+        android:id="@+id/fragmento_config"
+        android:name="com.euroformac.practicafinal.fragmento_config"
+        android:label="fragment_fragmento_config"
+        tools:layout="@layout/fragment_fragmento_config" />
+    <fragment
+        android:id="@+id/fragmentoJornada"
+        android:name="com.euroformac.practicafinal.fragmentoJornada"
+        android:label="fragment_fragmento_jornada"
+        tools:layout="@layout/fragment_fragmento_jornada" />
+</navigation>
