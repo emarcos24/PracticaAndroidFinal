@@ -7,22 +7,22 @@
 
     <fragment
         android:id="@+id/fragmentoLiga"
-        android:name="com.euroformac.practicafinal.fragmentoLiga"
+        android:name="com.euroformac.practicafinal.FragmentoLiga"
         android:label="fragment_fragmento_liga"
-        tools:layout="@layout/fragment_fragmento_liga" />
+        tools:layout="@layout/fragment_liga" />
     <fragment
         android:id="@+id/fragmentoEquipo"
-        android:name="com.euroformac.practicafinal.fragmentoEquipo"
+        android:name="com.euroformac.practicafinal.FragmentoEquipo"
         android:label="fragment_fragmento_equipo"
-        tools:layout="@layout/fragment_fragmento_equipo" />
+        tools:layout="@layout/fragment_equipo" />
     <fragment
-        android:id="@+id/fragmento_config"
-        android:name="com.euroformac.practicafinal.fragmento_config"
+        android:id="@+id/fragmentoConfig"
+        android:name="com.euroformac.practicafinal.FragmentoConfig"
         android:label="fragment_fragmento_config"
-        tools:layout="@layout/fragment_fragmento_config" />
+        tools:layout="@layout/fragment_config" />
     <fragment
         android:id="@+id/fragmentoJornada"
-        android:name="com.euroformac.practicafinal.fragmentoJornada"
+        android:name="com.euroformac.practicafinal.FragmentoJornada"
         android:label="fragment_fragmento_jornada"
-        tools:layout="@layout/fragment_fragmento_jornada" />
+        tools:layout="@layout/fragment_jornada" />
 </navigation>
