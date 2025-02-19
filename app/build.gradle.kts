@@ -8,6 +8,10 @@ android {
     namespace = "com.euroformac.practicafinal"
     compileSdk = 35
 
+    buildFeatures{
+        viewBinding = true
+    }
+
     defaultConfig {
         applicationId = "com.euroformac.practicafinal"
         minSdk = 24

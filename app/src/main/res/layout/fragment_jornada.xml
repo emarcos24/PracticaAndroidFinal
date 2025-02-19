@@ -10,62 +10,216 @@
     android:paddingHorizontal="10dp"
     android:background="#2C2D2D">
 
-
+    <!-- HEADER -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:background="@color/black"
-        android:layout_weight="1"
+        android:orientation="horizontal"
         android:paddingRight="5dp">
 
         <ImageView
-            android:id="@+id/imageViewJornada"
+            android:id="@+id/imageView"
             android:layout_width="100dp"
-            android:layout_height="match_parent"
-            android:src="@drawable/logo"/>
+            android:layout_height="75dp"
+            android:src="@drawable/logo" />
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="50dp"
             android:layout_weight="1"
-            android:text="Jornada"
+            android:text="Temporada 24/25"
             android:textAlignment="center"
             android:textColor="@color/white" />
 
         <Button
-            android:id="@+id/button2Jornada"
+            android:id="@+id/button2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Editar" />
-
     </LinearLayout>
 
-    <LinearLayout
+    <!-- BUTTON -->
+    <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_weight="0.01">
+        android:text="Buscar" />
 
-        <Button
+    <!-- SCROLLABLE CONTENT -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="true">
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Buscar"/>
+            android:orientation="vertical">
 
-    </LinearLayout>
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"> <!-- Use wrap_content -->
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_weight="25">
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center">
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Contenido"/>
+                    <ImageView
+                        android:id="@+id/imageViewBarca"
+                        android:layout_width="120dp"
+                        android:layout_height="120dp"
+                        android:src="@drawable/logobarca"
+                        android:contentDescription="Logo del Barsa"/>
 
-    </LinearLayout>
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="50dp"
+                        android:layout_weight="1"
+                        android:text="Partido1"
+                        android:textAlignment="center"
+                        android:textColor="@color/white" />
 
+                    <ImageView
+                        android:id="@+id/imageViewGirona"
+                        android:layout_width="120dp"
+                        android:layout_height="120dp"
+                        android:src="@drawable/logogirona" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:id="@+id/imageViewBaxi"
+                        android:layout_width="120dp"
+                        android:layout_height="120dp"
+                        android:src="@drawable/logobaxi" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="50dp"
+                        android:layout_weight="1"
+                        android:text="Partido2"
+                        android:textAlignment="center"
+                        android:textColor="@color/white" />
+
+                    <ImageView
+                        android:id="@+id/imageViewGranada"
+                        android:layout_width="120dp"
+                        android:layout_height="120dp"
+                        android:src="@drawable/logogranada" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:id="@+id/imageViewGranCanaria"
+                        android:layout_width="120dp"
+                        android:layout_height="120dp"
+                        android:src="@drawable/logograncanaria" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="50dp"
+                        android:layout_weight="1"
+                        android:text="Partido3"
+                        android:textAlignment="center"
+                        android:textColor="@color/white" />
+
+                    <ImageView
+                        android:id="@+id/imageViewBadalona"
+                        android:layout_width="120dp"
+                        android:layout_height="120dp"
+                        android:src="@drawable/logobadalona" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:id="@+id/imageViewTenerife"
+                        android:layout_width="120dp"
+                        android:layout_height="120dp"
+                        android:src="@drawable/logotenerife" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="50dp"
+                        android:layout_weight="1"
+                        android:text="Partido4"
+                        android:textAlignment="center"
+                        android:textColor="@color/white" />
+
+                    <ImageView
+                        android:id="@+id/imageViewAndorra"
+                        android:layout_width="120dp"
+                        android:layout_height="120dp"
+                        android:src="@drawable/logoandorra" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:id="@+id/imageViewMadrid"
+                        android:layout_width="120dp"
+                        android:layout_height="120dp"
+                        android:src="@drawable/logomadrid" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="50dp"
+                        android:layout_weight="3"
+                        android:text="Partido5"
+                        android:textAlignment="center"
+                        android:textColor="@color/white" />
+
+                    <ImageView
+                        android:id="@+id/imageView16"
+                        android:layout_width="120dp"
+                        android:layout_height="120dp"
+                        android:src="@drawable/logobilbao" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:id="@+id/imageViewMurcia"
+                        android:layout_width="120dp"
+                        android:layout_height="120dp"
+                        android:src="@drawable/logomurcia" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="50dp"
+                        android:layout_weight="1"
+                        android:text="Partido6"
+                        android:textAlignment="center"
+                        android:textColor="@color/white" />
+
+                    <ImageView
+                        android:id="@+id/imageViewTeam3"
+                        android:layout_width="120dp"
+                        android:layout_height="120dp"
+                        android:src="@drawable/logovalencia" />
+                </TableRow>
+
+            </TableLayout>
+        </LinearLayout>
+
+    </ScrollView>
 
 </LinearLayout>

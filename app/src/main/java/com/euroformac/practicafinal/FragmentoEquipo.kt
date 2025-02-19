@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
+import android.widget.ListView
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -33,9 +35,22 @@ class FragmentoEquipo : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_equipo, container, false)
+        // Inflar el diseño
+        val view = inflater.inflate(R.layout.fragment_equipo, container, false)
+
+        // Encontrar la lista en el layout
+        val listView: ListView = view.findViewById(R.id.listaEquipo)
+
+        // Lista de jugadores (esto luego se cargará desde Room)
+        val jugadores = listOf("Jugador 1", "Jugador 2", "Jugador 3", "Jugador 4", "Jugador 5")
+
+        // Adaptador para la lista
+        val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_list_item_1, jugadores)
+        listView.adapter = adapter
+
+        return view
     }
+
 
     companion object {
         /**
