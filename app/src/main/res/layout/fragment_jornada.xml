@@ -29,13 +29,16 @@
             android:layout_weight="1"
             android:text="Temporada 24/25"
             android:textAlignment="center"
-            android:textColor="@color/white" />
+            android:textColor="@color/white"
+            android:paddingTop="15dp"/>
 
-        <Button
-            android:id="@+id/button2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Editar" />
+        <!-- Imagen del equipo favorito que el usuario elige -->
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/logomadrid"
+            android:padding="5dp"/>
     </LinearLayout>
 
     <LinearLayout
@@ -46,11 +49,13 @@
         <ImageButton
             android:id="@+id/imageButton"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
+            android:layout_weight="1"
             android:background="#2C2D2D"
-            android:src="@drawable/baseline_arrow_back_ios_24"
             android:paddingTop="10dp"
-            android:layout_weight="1"/>
+            android:src="@drawable/baseline_arrow_back_ios_24"
+            android:paddingBottom="10dp"
+            android:paddingLeft="60dp"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -64,11 +69,13 @@
         <ImageButton
             android:id="@+id/imageButton2"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
             android:background="#2C2D2D"
             android:src="@drawable/baseline_arrow_forward_ios_24"
             android:paddingTop="10dp"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:paddingBottom="10dp"
+            android:paddingRight="60dp"/>
     </LinearLayout>
 
     <ScrollView

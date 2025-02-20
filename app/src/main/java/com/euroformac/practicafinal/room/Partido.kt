@@ -8,8 +8,8 @@ import androidx.room.PrimaryKey
 @Entity(
     tableName = "partidos",
     foreignKeys = [
-        ForeignKey(entity = Equipo::class, parentColumns = ["id"], childColumns = ["localId"]),
-        ForeignKey(entity = Equipo::class, parentColumns = ["id"], childColumns = ["visitanteId"]),
+        ForeignKey(entity = Equipo::class, parentColumns = ["id"], childColumns = ["localId"], onDelete = ForeignKey.CASCADE),
+        ForeignKey(entity = Equipo::class, parentColumns = ["id"], childColumns = ["visitanteId"], onDelete = ForeignKey.CASCADE),
         ForeignKey(entity = Jugador::class, parentColumns = ["id"], childColumns = ["mvpId"], onDelete = ForeignKey.SET_NULL)
     ]
 )

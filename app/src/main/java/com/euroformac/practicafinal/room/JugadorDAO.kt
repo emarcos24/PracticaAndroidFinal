@@ -12,6 +12,9 @@ interface JugadorDAO {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertarJugador(jugador: Jugador)
 
+    @Update
+    suspend fun actualizarJugador(jugador: Jugador)
+
     @Query("SELECT * FROM jugadores WHERE equipoId = :equipoId")
     suspend fun obtenerJugadoresPorEquipo(equipoId: Int): List<Jugador>
 

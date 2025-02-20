@@ -10,11 +10,14 @@ import androidx.room.Update
 @Dao
 interface PartidoDAO {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertarPartido(fixture: Partido)
+    suspend fun insertarPartido(partido: Partido)
+
+    @Update
+    suspend fun actualizarPartido(partido: Partido)
 
     @Query("SELECT * FROM partidos")
     suspend fun obtenerTodosLosPartidos(): List<Partido>
 
     @Delete
-    suspend fun eliminarPartido(fixture: Partido)
+    suspend fun eliminarPartido(partido: Partido)
 }

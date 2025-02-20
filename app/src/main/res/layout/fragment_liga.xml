@@ -29,24 +29,23 @@
             android:layout_weight="1"
             android:text="Temporada 24/25"
             android:textAlignment="center"
-            android:textColor="@color/white" />
+            android:textColor="@color/white"
+            android:paddingTop="15dp"/>
 
-        <Button
-            android:id="@+id/button2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Editar" />
+        <!-- Imagen del equipo favorito que el usuario elige -->
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/logomadrid"
+            android:padding="5dp"/>
     </LinearLayout>
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Buscar" />
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fillViewport="true">
+        android:fillViewport="true"
+        android:paddingTop="10dp">
 
         <LinearLayout
             android:layout_width="match_parent"

@@ -9,6 +9,10 @@ import androidx.room.Update
 
 @Dao
 interface TablaLigaDAO {
-    @Query("SELECT * FROM tabla_liga ORDER BY posicion ASC")
+    @Query("SELECT * FROM tabla_liga ORDER BY puntos DESC, diferencia_puntos DESC")
     suspend fun obtenerTablaLiga(): List<TablaLiga>
+
+    @Update
+    suspend fun actualizarTablaLiga(tablaLiga: TablaLiga)
+
 }

@@ -26,10 +26,15 @@ abstract class AppDatabase : RoomDatabase() {
                     context.applicationContext,
                     AppDatabase::class.java,
                     "liga_database"
-                ).build()
+                )
+                    .fallbackToDestructiveMigration() // Permite eliminar y recrear la base de datos si cambia la estructura
+                    .build()
                 INSTANCE = instance
                 instance
             }
         }
+
     }
+
+
 }

@@ -11,7 +11,7 @@ import androidx.room.PrimaryKey
         entity = Equipo::class,
         parentColumns = ["id"],
         childColumns = ["equipoId"],
-        onDelete = ForeignKey.CASCADE // Si borras un equipo, se eliminan sus jugadores
+        onDelete = ForeignKey.CASCADE
     )]
 )
 data class Jugador(

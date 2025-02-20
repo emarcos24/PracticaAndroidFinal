@@ -22,7 +22,7 @@
         <ImageView
             android:id="@+id/imageViewConfig"
             android:layout_width="100dp"
-            android:layout_height="match_parent"
+            android:layout_height="75dp"
             android:src="@drawable/logo"/>
 
         <TextView
@@ -31,41 +31,109 @@
             android:layout_weight="1"
             android:text="Configuración"
             android:textAlignment="center"
-            android:textColor="@color/white" />
+            android:textColor="@color/white"
+            android:paddingTop="15dp"/>
 
-        <Button
-            android:id="@+id/button2Config"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Editar" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_weight="0.01">
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Buscar"/>
+        <ImageView
+            android:id="@+id/imageViewConfig2"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/logomadrid"
+            android:padding="5dp"/>
 
     </LinearLayout>
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:layout_weight="25">
 
         <Button
+            android:id="@+id/button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Contenido"/>
+            android:layout_marginStart="127dp"
+            android:layout_marginTop="87dp"
+            android:layout_marginEnd="127dp"
+            android:layout_marginBottom="516dp"
+            android:text="Añadir equipo"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    </LinearLayout>
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="129dp"
+            android:layout_marginTop="26dp"
+            android:layout_marginEnd="128dp"
+            android:layout_marginBottom="453dp"
+            android:text="Borrar equipo"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="127dp"
+            android:layout_marginTop="27dp"
+            android:layout_marginEnd="126dp"
+            android:layout_marginBottom="378dp"
+            android:text="Añadir partido"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button3" />
+
+        <Button
+            android:id="@+id/button5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="128dp"
+            android:layout_marginTop="27dp"
+            android:layout_marginEnd="127dp"
+            android:layout_marginBottom="303dp"
+            android:text="Borrar partido"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button4" />
+
+        <Button
+            android:id="@+id/button6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="141dp"
+            android:layout_marginTop="28dp"
+            android:layout_marginEnd="140dp"
+            android:layout_marginBottom="227dp"
+            android:text="Mi equipo"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button5" />
+
+        <Button
+            android:id="@+id/button7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="152dp"
+            android:layout_marginTop="26dp"
+            android:layout_marginEnd="152dp"
+            android:layout_marginBottom="153dp"
+            android:text="Inglés"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button6" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 </LinearLayout>
