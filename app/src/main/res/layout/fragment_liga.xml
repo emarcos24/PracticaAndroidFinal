@@ -10,7 +10,6 @@
     android:paddingHorizontal="10dp"
     android:background="#2C2D2D">
 
-    <!-- HEADER -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -39,13 +38,11 @@
             android:text="Editar" />
     </LinearLayout>
 
-    <!-- BUTTON -->
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Buscar" />
 
-    <!-- SCROLLABLE CONTENT -->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -58,7 +55,7 @@
 
             <TableLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"> <!-- Use wrap_content -->
+                android:layout_height="wrap_content">
 
                 <TableRow
                     android:layout_width="match_parent"

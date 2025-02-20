@@ -10,7 +10,6 @@
     android:paddingHorizontal="10dp"
     android:background="#2C2D2D">
 
-    <!-- HEADER -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -39,13 +38,39 @@
             android:text="Editar" />
     </LinearLayout>
 
-    <!-- BUTTON -->
-    <Button
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Buscar" />
+        android:orientation="horizontal">
 
-    <!-- SCROLLABLE CONTENT -->
+        <ImageButton
+            android:id="@+id/imageButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#2C2D2D"
+            android:src="@drawable/baseline_arrow_back_ios_24"
+            android:paddingTop="10dp"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:text="Jornada X"
+            android:paddingTop="10dp"
+            android:textColor="@color/black"
+            android:layout_weight="1"
+            android:textAlignment="center"/>
+
+        <ImageButton
+            android:id="@+id/imageButton2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#2C2D2D"
+            android:src="@drawable/baseline_arrow_forward_ios_24"
+            android:paddingTop="10dp"
+            android:layout_weight="1"/>
+    </LinearLayout>
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -58,7 +83,7 @@
 
             <TableLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"> <!-- Use wrap_content -->
+                android:layout_height="wrap_content">
 
                 <TableRow
                     android:layout_width="match_parent"
@@ -212,6 +237,84 @@
 
                     <ImageView
                         android:id="@+id/imageViewTeam3"
+                        android:layout_width="120dp"
+                        android:layout_height="120dp"
+                        android:src="@drawable/logovalencia" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:id="@+id/imageViewej1"
+                        android:layout_width="120dp"
+                        android:layout_height="120dp"
+                        android:src="@drawable/logomurcia" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="50dp"
+                        android:layout_weight="1"
+                        android:text="Partido7"
+                        android:textAlignment="center"
+                        android:textColor="@color/white" />
+
+                    <ImageView
+                        android:id="@+id/imageViewej2"
+                        android:layout_width="120dp"
+                        android:layout_height="120dp"
+                        android:src="@drawable/logovalencia" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:id="@+id/imageViewej3"
+                        android:layout_width="120dp"
+                        android:layout_height="120dp"
+                        android:src="@drawable/logomurcia" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="50dp"
+                        android:layout_weight="1"
+                        android:text="Partido7"
+                        android:textAlignment="center"
+                        android:textColor="@color/white" />
+
+                    <ImageView
+                        android:id="@+id/imageViewej4"
+                        android:layout_width="120dp"
+                        android:layout_height="120dp"
+                        android:src="@drawable/logovalencia" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:id="@+id/imageViewej5"
+                        android:layout_width="120dp"
+                        android:layout_height="120dp"
+                        android:src="@drawable/logomurcia" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="50dp"
+                        android:layout_weight="1"
+                        android:text="Partido9"
+                        android:textAlignment="center"
+                        android:textColor="@color/white" />
+
+                    <ImageView
+                        android:id="@+id/imageViewej6"
                         android:layout_width="120dp"
                         android:layout_height="120dp"
                         android:src="@drawable/logovalencia" />
