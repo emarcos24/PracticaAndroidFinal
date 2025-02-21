@@ -10,6 +10,7 @@
     android:paddingHorizontal="10dp"
     android:background="#2C2D2D">
 
+    <!-- HEADER -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -41,169 +42,171 @@
             android:padding="5dp"/>
     </LinearLayout>
 
-    <ScrollView
+    <!-- TABLA DE EQUIPOS -->
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fillViewport="true"
+        android:orientation="vertical"
         android:paddingTop="10dp">
 
-        <LinearLayout
+        <TableLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_height="wrap_content">
 
-            <TableLayout
+            <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:gravity="center">
 
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center">
+                <ImageView
+                    android:id="@+id/imageViewBarca"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:src="@drawable/logobarca" />
 
-                    <ImageView
-                        android:id="@+id/imageViewBarca"
-                        android:layout_width="120dp"
-                        android:layout_height="120dp"
-                        android:src="@drawable/logobarca"
-                        android:contentDescription="Logo del Barsa"/>
+                <ImageView
+                    android:id="@+id/imageViewBaskonia"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:src="@drawable/logobaskonia" />
 
-                    <ImageView
-                        android:id="@+id/imageViewBaskonia"
-                        android:layout_width="120dp"
-                        android:layout_height="120dp"
-                        android:src="@drawable/logobaskonia" />
+                <ImageView
+                    android:id="@+id/imageViewGirona"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:src="@drawable/logogirona" />
+            </TableRow>
 
-                    <ImageView
-                        android:id="@+id/imageViewGirona"
-                        android:layout_width="120dp"
-                        android:layout_height="120dp"
-                        android:src="@drawable/logogirona" />
-                </TableRow>
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center">
 
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center">
+                <ImageView
+                    android:id="@+id/imageViewBaxi"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:src="@drawable/logobaxi" />
 
-                    <ImageView
-                        android:id="@+id/imageViewBaxi"
-                        android:layout_width="120dp"
-                        android:layout_height="120dp"
-                        android:src="@drawable/logobaxi" />
+                <ImageView
+                    android:id="@+id/imageViewZaragoza"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:src="@drawable/logozaragoza" />
 
-                    <ImageView
-                        android:id="@+id/imageViewZaragoza"
-                        android:layout_width="120dp"
-                        android:layout_height="120dp"
-                        android:src="@drawable/logozaragoza" />
+                <ImageView
+                    android:id="@+id/imageViewGranada"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:src="@drawable/logogranada" />
+            </TableRow>
 
-                    <ImageView
-                        android:id="@+id/imageViewGranada"
-                        android:layout_width="120dp"
-                        android:layout_height="120dp"
-                        android:src="@drawable/logogranada" />
-                </TableRow>
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center">
 
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center">
+                <ImageView
+                    android:id="@+id/imageViewGranCanaria"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:src="@drawable/logograncanaria" />
 
-                    <ImageView
-                        android:id="@+id/imageViewGranCanaria"
-                        android:layout_width="120dp"
-                        android:layout_height="120dp"
-                        android:src="@drawable/logograncanaria" />
+                <ImageView
+                    android:id="@+id/imageViewLleida"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:src="@drawable/logolleida" />
 
-                    <ImageView
-                        android:id="@+id/imageViewLleida"
-                        android:layout_width="120dp"
-                        android:layout_height="120dp"
-                        android:src="@drawable/logolleida" />
+                <ImageView
+                    android:id="@+id/imageViewBadalona"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:src="@drawable/logobadalona" />
+            </TableRow>
 
-                    <ImageView
-                        android:id="@+id/imageViewBadalona"
-                        android:layout_width="120dp"
-                        android:layout_height="120dp"
-                        android:src="@drawable/logobadalona" />
-                </TableRow>
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center">
 
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center">
+                <ImageView
+                    android:id="@+id/imageViewTenerife"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:src="@drawable/logotenerife" />
 
-                    <ImageView
-                        android:id="@+id/imageViewTenerife"
-                        android:layout_width="120dp"
-                        android:layout_height="120dp"
-                        android:src="@drawable/logotenerife" />
+                <ImageView
+                    android:id="@+id/imageViewCoruna"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:src="@drawable/logocoruna" />
 
-                    <ImageView
-                        android:id="@+id/imageViewCoruna"
-                        android:layout_width="120dp"
-                        android:layout_height="120dp"
-                        android:src="@drawable/logocoruna" />
+                <ImageView
+                    android:id="@+id/imageViewAndorra"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:src="@drawable/logoandorra" />
+            </TableRow>
 
-                    <ImageView
-                        android:id="@+id/imageViewAndorra"
-                        android:layout_width="120dp"
-                        android:layout_height="120dp"
-                        android:src="@drawable/logoandorra" />
-                </TableRow>
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center">
 
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center">
+                <ImageView
+                    android:id="@+id/imageViewMadrid"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:src="@drawable/logomadrid" />
 
-                    <ImageView
-                        android:id="@+id/imageViewMadrid"
-                        android:layout_width="120dp"
-                        android:layout_height="120dp"
-                        android:src="@drawable/logomadrid" />
+                <ImageView
+                    android:id="@+id/imageViewRio"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:src="@drawable/logoriobreogan" />
 
-                    <ImageView
-                        android:id="@+id/imageViewRio"
-                        android:layout_width="120dp"
-                        android:layout_height="120dp"
-                        android:src="@drawable/logoriobreogan" />
+                <ImageView
+                    android:id="@+id/imageViewBilbao"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:src="@drawable/logobilbao" />
+            </TableRow>
 
-                    <ImageView
-                        android:id="@+id/imageView16"
-                        android:layout_width="120dp"
-                        android:layout_height="120dp"
-                        android:src="@drawable/logobilbao" />
-                </TableRow>
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center">
 
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center">
+                <ImageView
+                    android:id="@+id/imageViewMurcia"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:src="@drawable/logomurcia" />
 
-                    <ImageView
-                        android:id="@+id/imageViewMurcia"
-                        android:layout_width="120dp"
-                        android:layout_height="120dp"
-                        android:src="@drawable/logomurcia" />
+                <ImageView
+                    android:id="@+id/imageViewUnicaja"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:src="@drawable/logounicaja" />
 
-                    <ImageView
-                        android:id="@+id/imageViewUnicaja"
-                        android:layout_width="120dp"
-                        android:layout_height="120dp"
-                        android:src="@drawable/logounicaja" />
+                <ImageView
+                    android:id="@+id/imageViewValencia"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:src="@drawable/logovalencia" />
+            </TableRow>
 
-                    <ImageView
-                        android:id="@+id/imageViewTeam3"
-                        android:layout_width="120dp"
-                        android:layout_height="120dp"
-                        android:src="@drawable/logovalencia" />
-                </TableRow>
+        </TableLayout>
+    </LinearLayout>
 
-            </TableLayout>
-        </LinearLayout>
-
-    </ScrollView>
+    <!-- RECYCLER VIEW PARA EQUIPOS -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewEquipos"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="10dp"
+        android:background="@color/black"/>
 
 </LinearLayout>

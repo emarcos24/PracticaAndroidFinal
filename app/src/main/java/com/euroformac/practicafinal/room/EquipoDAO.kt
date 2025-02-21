@@ -18,6 +18,9 @@ interface EquipoDAO {
     @Query("SELECT * FROM equipos")
     suspend fun obtenerEquipos(): List<Equipo>
 
+    @Query("SELECT * FROM equipos WHERE id = :equipoId LIMIT 1")
+    suspend fun obtenerEquipoPorId(equipoId: Int): Equipo?
+
     @Delete
     suspend fun eliminarEquipo(equipo: Equipo)
 }

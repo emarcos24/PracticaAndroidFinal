@@ -7,6 +7,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.ListView
+import android.widget.TextView
+import com.euroformac.practicafinal.room.AppDatabase
+import com.euroformac.practicafinal.room.EquipoDAO
+import com.euroformac.practicafinal.room.JugadorDAO
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -19,56 +27,39 @@ private const val ARG_PARAM2 = "param2"
  * create an instance of this fragment.
  */
 class FragmentoEquipo : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private lateinit var equipoDao: EquipoDAO
+    private lateinit var jugadorDao: JugadorDAO
+    private var equipoId: Int = -1
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
-        // Inflar el diseño
         val view = inflater.inflate(R.layout.fragment_equipo, container, false)
 
-        // Encontrar la lista en el layout
-        val listView: ListView = view.findViewById(R.id.listaEquipo)
+        equipoId = arguments?.getInt("EQUIPO_ID") ?: -1
 
-        // Lista de jugadores (esto luego se cargará desde Room)
-        val jugadores = listOf("Jugador 1", "Jugador 2", "Jugador 3", "Jugador 4", "Jugador 5")
+        val database = AppDatabase.getDatabase(requireContext())
+        equipoDao = database.equipoDao
+        jugadorDao = database.jugadorDao
 
-        // Adaptador para la lista
-        val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_list_item_1, jugadores)
-        listView.adapter = adapter
+        CoroutineScope(Dispatchers.IO).launch {
+            val equipo = equipoDao.obtenerEquipoPorId(equipoId)
+            val jugadores = jugadorDao.obtenerJugadoresPorEquipo(equipoId)
+
+            withContext(Dispatchers.Main) {
+                view.findViewById<TextView>(R.id.txtNombreEquipo).text = equipo?.nombre
+
+                /*          IMPLEMENTAR EN EL FUTURO
+                // Cargar imagen con Glide si usas imágenes en la BD
+                // Glide.with(requireContext()).load(equipo?.logo).into(view.findViewById(R.id.imageViewEquipo))
+                */
+                val listViewJugadores = view.findViewById<ListView>(R.id.listaEquipo)
+                val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_list_item_1, jugadores.map { it.nombre })
+                listViewJugadores.adapter = adapter
+            }
+        }
 
         return view
-    }
-
-
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment fragmentoEquipo.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            FragmentoEquipo().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
     }
 }

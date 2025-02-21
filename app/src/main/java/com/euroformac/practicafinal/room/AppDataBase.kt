@@ -6,8 +6,8 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 
 @Database(
-    entities = [Equipo::class, Jugador::class, Partido::class, TablaLiga::class],
-    version = 1
+    entities = [Equipo::class, Jugador::class, Partido::class, TablaLiga::class, Jornada::class],
+    version = 2
 )
 abstract class AppDatabase : RoomDatabase() {
 
@@ -15,6 +15,7 @@ abstract class AppDatabase : RoomDatabase() {
     abstract val jugadorDao: JugadorDAO
     abstract val partidoDao: PartidoDAO
     abstract val tablaLigaDao: TablaLigaDAO
+    abstract val jornadaDAO: JornadaDAO
 
     companion object {
         @Volatile
@@ -26,9 +27,7 @@ abstract class AppDatabase : RoomDatabase() {
                     context.applicationContext,
                     AppDatabase::class.java,
                     "liga_database"
-                )
-                    .fallbackToDestructiveMigration() // Permite eliminar y recrear la base de datos si cambia la estructura
-                    .build()
+                ).fallbackToDestructiveMigration().build()
                 INSTANCE = instance
                 instance
             }
