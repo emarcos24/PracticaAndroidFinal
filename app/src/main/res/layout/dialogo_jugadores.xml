@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <EditText
+        android:id="@+id/editTextJugadorNombre"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:hint="Nombre del jugador" />
+
+    <EditText
+        android:id="@+id/editTextJugadorPosicion"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:hint="Posición" />
+
+    <EditText
+        android:id="@+id/editTextJugadorDorsal"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:hint="Número de dorsal"
+        android:inputType="number" />
+
+    <Button
+        android:id="@+id/buttonAñadirJugador"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Añadir jugador"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:id="@+id/textViewListaJugadores"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Jugadores añadidos:"
+        android:paddingTop="10dp"/>
+
+</LinearLayout>
