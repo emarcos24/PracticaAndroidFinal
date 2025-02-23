@@ -43,7 +43,6 @@ class FragmentoLiga : Fragment(R.layout.fragment_liga) {
             }
         }
 
-
         return view
     }
 

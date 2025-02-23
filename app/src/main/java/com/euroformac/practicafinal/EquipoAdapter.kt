@@ -18,11 +18,6 @@ class EquipoAdapter(private val equipos: List<Equipo>, private val onItemClick: 
         fun bind(equipo: Equipo) {
             nombreEquipo.text = equipo.nombre
 
-            /*      IMPLEMENTAR MAS TARDE
-            // Cargar imagen con Glide si usas imágenes en la BD
-            // Glide.with(itemView.context).load(equipo.logo).into(imagenEquipo)
-            */
-
             itemView.setOnClickListener {
                 onItemClick(equipo)
             }

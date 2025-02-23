@@ -24,14 +24,16 @@
             android:layout_height="75dp"
             android:src="@drawable/abclogo" />
 
-        <TextView
-            android:layout_width="0dp"
+        <Button
+            android:id="@+id/botonVolver"
+            android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_weight="1"
-            android:text="Ficha de equipo"
-            android:textAlignment="center"
+            android:text="Volver"
+            android:backgroundTint="@color/black"
             android:textColor="@color/white"
-            android:paddingTop="15dp"/>
+            android:textSize="16sp"
+            android:layout_marginTop="10dp"/>
 
         <!-- Imagen del equipo favorito que el usuario elige -->
         <ImageView
@@ -60,6 +62,17 @@
         android:layout_gravity="center"
         android:src="@drawable/logobarca"
         android:contentDescription="Logo del Equipo"/>
+
+    <TextView
+        android:id="@+id/txtEntrenador"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="15dp"
+        android:text="Entrenador"
+        android:textSize="16sp"
+        android:textColor="@color/white"
+        android:textStyle="italic"/>
+
 
     <!-- PLAYER LIST -->
     <ListView

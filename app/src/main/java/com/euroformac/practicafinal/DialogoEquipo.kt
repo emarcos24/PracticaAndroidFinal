@@ -45,9 +45,9 @@ class DialogoEquipo(private val listener: OnEquipoListener) : DialogFragment() {
 
         val defaultLogoKey = "logodefault"  // Nombre real del logo por defecto en drawable
         val defaultLogoName = "Logo Por Defecto"
-        val hintLogo = "Selecciona un logo"
+        val logoHint = "Selecciona un logo"
 
-        val logoNombres = mutableListOf(hintLogo, defaultLogoName) +
+        val logoNombres = mutableListOf(logoHint, defaultLogoName) +
                 logosMap.values.filter { it != defaultLogoName }
 
         val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_dropdown_item, logoNombres)
@@ -68,13 +68,19 @@ class DialogoEquipo(private val listener: OnEquipoListener) : DialogFragment() {
                 val manager = editTextManager.text.toString().trim()
                 val logoSeleccionado = spinnerLogos.selectedItem.toString()
 
-                if (nombre.isEmpty() || manager.isEmpty() || logoSeleccionado == hintLogo) {
+                if (nombre.isEmpty() || manager.isEmpty() || logoSeleccionado == logoHint) {
                     Toast.makeText(context, "Rellena todos los campos y elige un logo", Toast.LENGTH_SHORT).show()
-                } else {
-                    val logoRealName = logosMap.entries.find { it.value == logoSeleccionado }?.key ?: defaultLogoKey
-                    listener.onEquipoIntroducido(nombre, manager, logoRealName)
-                    dialog.dismiss()
+                    return@setOnClickListener
                 }
+
+                if (!validarTexto(manager)) {
+                    Toast.makeText(context, "El nombre del entrenador no puede contener números", Toast.LENGTH_SHORT).show()
+                    return@setOnClickListener
+                }
+
+                val logoRealName = logosMap.entries.find { it.value == logoSeleccionado }?.key ?: defaultLogoKey
+                listener.onEquipoIntroducido(nombre, manager, logoRealName)
+                dialog.dismiss()
             }
         }
 

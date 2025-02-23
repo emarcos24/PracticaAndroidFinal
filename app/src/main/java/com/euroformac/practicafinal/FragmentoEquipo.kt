@@ -6,6 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import android.widget.Button
+import android.widget.ImageView
 import android.widget.ListView
 import android.widget.TextView
 import com.euroformac.practicafinal.room.AppDatabase
@@ -48,16 +50,35 @@ class FragmentoEquipo : Fragment() {
             val jugadores = jugadorDao.obtenerJugadoresPorEquipo(equipoId)
 
             withContext(Dispatchers.Main) {
-                view.findViewById<TextView>(R.id.txtNombreEquipo).text = equipo?.nombre
+                if (equipo != null) {
+                    view.findViewById<TextView>(R.id.txtNombreEquipo).text = equipo.nombre
+                    view.findViewById<TextView>(R.id.txtEntrenador).text =
+                        "Entrenador: ${equipo.manager}"
 
-                /*          IMPLEMENTAR EN EL FUTURO
-                // Cargar imagen con Glide si usas imágenes en la BD
-                // Glide.with(requireContext()).load(equipo?.logo).into(view.findViewById(R.id.imageViewEquipo))
-                */
-                val listViewJugadores = view.findViewById<ListView>(R.id.listaEquipo)
-                val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_list_item_1, jugadores.map { it.nombre })
-                listViewJugadores.adapter = adapter
+                    val imageViewEquipo = view.findViewById<ImageView>(R.id.imageViewEquipo)
+                    val resId = resources.getIdentifier(
+                        equipo.logo,
+                        "drawable",
+                        requireContext().packageName
+                    )
+                    if (resId != 0) {
+                        imageViewEquipo.setImageResource(resId)
+                    } else {
+                        imageViewEquipo.setImageResource(R.drawable.logodefault)
+                    }
+
+                    val listViewJugadores = view.findViewById<ListView>(R.id.listaEquipo)
+                    val adapter = ArrayAdapter(
+                        requireContext(),
+                        android.R.layout.simple_list_item_1,
+                        jugadores.map { it.nombre })
+                    listViewJugadores.adapter = adapter
+                }
             }
+        }
+
+        view.findViewById<Button>(R.id.botonVolver).setOnClickListener {
+            parentFragmentManager.popBackStack()
         }
 
         return view

@@ -64,7 +64,12 @@ class FragmentoConfig : Fragment() {
 
 
         botonBorrarEquipo.setOnClickListener {
-            // Acción para borrar equipo
+            val dialogoBorrar = DialogoBorrarEquipo(object : DialogoBorrarEquipo.OnEquipoBorradoListener {
+                override fun onEquipoBorrado() {
+                    // Actualizar la UI si es necesario
+                }
+            })
+            dialogoBorrar.show(parentFragmentManager, "DialogoBorrarEquipo")
         }
 
         botonAñadirPartido.setOnClickListener {

@@ -24,25 +24,22 @@ interface EquipoDAO {
     @Query("SELECT * FROM equipos WHERE id = :equipoId")
     suspend fun obtenerEquipoConJugadores(equipoId: Int): EquipoConJugadores
 
-
-    @Delete
-    suspend fun eliminarEquipo(equipo: Equipo)
-
     @Transaction
     suspend fun insertarEquipoConJugadores(equipo: Equipo, jugadores: List<Jugador>) {
-        val equipoId = insertarEquipo(equipo)  // Guarda el ID generado correctamente
-        if (equipoId > 0) {  // Solo inserta jugadores si el equipo se crea con éxito
+        val equipoId = insertarEquipo(equipo)
+        if (equipoId > 0) {
             val jugadoresConEquipo = jugadores.map { it.copy(equipoId = equipoId.toInt()) }
-            insertarJugadores(jugadoresConEquipo)  // Ahora sí usa la función correcta
+            insertarJugadores(jugadoresConEquipo)
         }
     }
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertarEquipo(equipo: Equipo): Long  // Cambia el tipo de retorno a Long para obtener el ID
+    suspend fun insertarEquipo(equipo: Equipo): Long
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertarJugadores(jugadores: List<Jugador>)  // Acepta una lista
+    suspend fun insertarJugadores(jugadores: List<Jugador>)
 
-
+    @Query("DELETE FROM equipos WHERE id = :equipoId")
+    suspend fun borrarEquipoPorId(equipoId: Int)
 
 }

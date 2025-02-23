@@ -11,11 +11,11 @@
         android:layout_height="48dp"
         android:hint="Nombre del jugador" />
 
-    <EditText
-        android:id="@+id/editTextJugadorPosicion"
+    <Spinner
+        android:id="@+id/spinnerPosicion"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:hint="Posición" />
+        android:layout_marginTop="10dp"/>
 
     <EditText
         android:id="@+id/editTextJugadorDorsal"
@@ -25,7 +25,7 @@
         android:inputType="number" />
 
     <Button
-        android:id="@+id/buttonAñadirJugador"
+        android:id="@+id/botonAnadirJugador"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Añadir jugador"
