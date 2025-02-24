@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_marginBottom="5dp"
+    android:background="@drawable/item_background">
+
+    <TextView
+        android:id="@+id/textoNombreJugador"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Nombre del Jugador"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@color/white"/>
+
+    <TextView
+        android:id="@+id/textoPosicionJugador"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Posición"
+        android:textSize="16sp"
+        android:textColor="@color/white"/>
+
+    <TextView
+        android:id="@+id/textoNumeroJugador"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Dorsal"
+        android:textSize="16sp"
+        android:textColor="@color/white"/>
+</LinearLayout>

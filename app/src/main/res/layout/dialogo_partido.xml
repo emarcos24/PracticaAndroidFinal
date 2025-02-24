@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- Jornada -->
+    <EditText
+        android:id="@+id/et_jornada"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:hint="Número de jornada"
+        android:inputType="number"/>
+
+    <!-- Spinner de equipo local -->
+    <Spinner
+        android:id="@+id/spinner_local"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:prompt="@string/prompt_equipo_local"/>
+
+    <!-- Spinner de equipo visitante -->
+    <Spinner
+        android:id="@+id/spinner_visitante"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:prompt="@string/prompt_equipo_visitante"/>
+
+    <Switch
+        android:id="@+id/switch_jugado"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:text="¿Partido jugado?" />
+
+    <EditText
+        android:id="@+id/tv_fecha"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:hint="Seleccionar fecha"
+        android:focusable="false"
+        android:clickable="true"/>
+
+    <!-- Puntos de cada equipo (se muestra si el switch está activado) -->
+    <LinearLayout
+        android:id="@+id/layout_puntos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <EditText
+            android:id="@+id/et_puntos_local"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:hint="Puntos local"
+            android:inputType="number" />
+
+        <EditText
+            android:id="@+id/et_puntos_visitante"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:hint="Puntos visitante"
+            android:inputType="number" />
+    </LinearLayout>
+
+</LinearLayout>

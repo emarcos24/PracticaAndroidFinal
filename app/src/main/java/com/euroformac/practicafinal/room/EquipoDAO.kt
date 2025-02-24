@@ -42,4 +42,8 @@ interface EquipoDAO {
     @Query("DELETE FROM equipos WHERE id = :equipoId")
     suspend fun borrarEquipoPorId(equipoId: Int)
 
+    @Query("SELECT * FROM equipos WHERE nombre = :nombre LIMIT 1")
+    suspend fun obtenerEquipoPorNombre(nombre: String): Equipo?
+
+
 }

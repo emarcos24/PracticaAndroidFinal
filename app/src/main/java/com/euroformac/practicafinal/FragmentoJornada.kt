@@ -1,10 +1,26 @@
 package com.euroformac.practicafinal
 
+import android.app.AlertDialog
+import android.app.DatePickerDialog
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
+import android.widget.Button
+import android.widget.EditText
+import android.widget.LinearLayout
+import android.widget.Spinner
+import android.widget.Switch
+import android.widget.TextView
+import android.widget.Toast
+import com.euroformac.practicafinal.room.AppDatabase
+import com.euroformac.practicafinal.room.Partido
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -20,6 +36,8 @@ class FragmentoJornada : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+    private lateinit var database: AppDatabase // Reemplaza con el nombre de tu BD
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,9 +51,10 @@ class FragmentoJornada : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
+        database = AppDatabase.getDatabase(requireContext())
         return inflater.inflate(R.layout.fragment_jornada, container, false)
     }
+
 
     companion object {
         /**

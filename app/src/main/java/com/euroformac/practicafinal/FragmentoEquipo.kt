@@ -10,6 +10,8 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.ListView
 import android.widget.TextView
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.euroformac.practicafinal.room.AppDatabase
 import com.euroformac.practicafinal.room.EquipoDAO
 import com.euroformac.practicafinal.room.JugadorDAO
@@ -45,6 +47,9 @@ class FragmentoEquipo : Fragment() {
         equipoDao = database.equipoDao
         jugadorDao = database.jugadorDao
 
+        val recyclerJugadores = view.findViewById<RecyclerView>(R.id.recyclerJugadores)
+        recyclerJugadores.layoutManager = LinearLayoutManager(requireContext())
+
         CoroutineScope(Dispatchers.IO).launch {
             val equipo = equipoDao.obtenerEquipoPorId(equipoId)
             val jugadores = jugadorDao.obtenerJugadoresPorEquipo(equipoId)
@@ -52,27 +57,13 @@ class FragmentoEquipo : Fragment() {
             withContext(Dispatchers.Main) {
                 if (equipo != null) {
                     view.findViewById<TextView>(R.id.txtNombreEquipo).text = equipo.nombre
-                    view.findViewById<TextView>(R.id.txtEntrenador).text =
-                        "Entrenador: ${equipo.manager}"
+                    view.findViewById<TextView>(R.id.txtEntrenador).text = "Entrenador: ${equipo.manager}"
 
                     val imageViewEquipo = view.findViewById<ImageView>(R.id.imageViewEquipo)
-                    val resId = resources.getIdentifier(
-                        equipo.logo,
-                        "drawable",
-                        requireContext().packageName
-                    )
-                    if (resId != 0) {
-                        imageViewEquipo.setImageResource(resId)
-                    } else {
-                        imageViewEquipo.setImageResource(R.drawable.logodefault)
-                    }
+                    val resId = resources.getIdentifier(equipo.logo, "drawable", requireContext().packageName)
+                    imageViewEquipo.setImageResource(if (resId != 0) resId else R.drawable.logodefault)
 
-                    val listViewJugadores = view.findViewById<ListView>(R.id.listaEquipo)
-                    val adapter = ArrayAdapter(
-                        requireContext(),
-                        android.R.layout.simple_list_item_1,
-                        jugadores.map { it.nombre })
-                    listViewJugadores.adapter = adapter
+                    recyclerJugadores.adapter = JugadorAdapter(jugadores)
                 }
             }
         }
@@ -83,4 +74,5 @@ class FragmentoEquipo : Fragment() {
 
         return view
     }
+
 }

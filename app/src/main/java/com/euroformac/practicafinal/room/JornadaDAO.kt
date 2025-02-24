@@ -17,4 +17,10 @@ interface JornadaDAO {
 
     @Delete
     suspend fun eliminarJornada(jornada: Jornada)
+
+    @Query("SELECT id FROM jornadas WHERE numero_jornada = :numero")
+    suspend fun obtenerIdPorNumero(numero: Int): Int?
+
+    @Query("SELECT * FROM jornadas WHERE id = :jornadaId LIMIT 1")
+    suspend fun getJornadaById(jornadaId: Int): Jornada
 }
