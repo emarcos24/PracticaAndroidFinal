@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageButton
 import android.widget.TextView
 import androidx.lifecycle.lifecycleScope
@@ -44,7 +45,6 @@ class FragmentoJornada : Fragment() {
         // Cargar la jornada inicial
         cargarPartidos(jornadaActual)
 
-        // Botón para ir a la jornada anterior
         botonAnterior.setOnClickListener {
             if (jornadaActual > 1) {
                 jornadaActual--
@@ -53,7 +53,6 @@ class FragmentoJornada : Fragment() {
             }
         }
 
-        // Botón para ir a la jornada siguiente
         botonSiguiente.setOnClickListener {
             lifecycleScope.launch {
                 val existeJornada = database.jornadaDao.existeJornada(jornadaActual + 1)
@@ -67,6 +66,7 @@ class FragmentoJornada : Fragment() {
 
         return view
     }
+
 
     private fun cargarPartidos(jornada: Int) {
         CoroutineScope(Dispatchers.IO).launch {

@@ -42,7 +42,6 @@ class FragmentoConfig : Fragment() {
         val botonBorrarEquipo = view.findViewById<Button>(R.id.button3)
         val botonAnadirPartido = view.findViewById<Button>(R.id.button4)
         val botonBorrarPartido = view.findViewById<Button>(R.id.button5)
-        val botonMiEquipo = view.findViewById<Button>(R.id.button6)
         val botonIdioma = view.findViewById<Button>(R.id.button7)
 
         botonAnadirEquipo.setOnClickListener {
@@ -90,10 +89,6 @@ class FragmentoConfig : Fragment() {
                     }
                 })
             dialogoBorrarPartido.show(parentFragmentManager, "DialogoBorrarPartido")
-        }
-
-        botonMiEquipo.setOnClickListener {
-            // Acción para ver mi equipo
         }
 
         botonIdioma.setOnClickListener {

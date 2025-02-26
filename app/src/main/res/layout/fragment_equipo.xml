@@ -38,7 +38,7 @@
             android:id="@+id/imageView2"
             android:layout_width="100dp"
             android:layout_height="match_parent"
-            android:src="@drawable/logomadrid"
+            android:src="@drawable/logoespana"
             android:padding="5dp"/>
     </LinearLayout>
 
@@ -57,7 +57,7 @@
         android:layout_width="120dp"
         android:layout_height="120dp"
         android:layout_gravity="center"
-        android:src="@drawable/logobarca"
+        android:src="@drawable/logodefault"
         android:contentDescription="Logo del Equipo"/>
 
     <TextView

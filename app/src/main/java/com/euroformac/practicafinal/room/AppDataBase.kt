@@ -6,15 +6,14 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 
 @Database(
-    entities = [Equipo::class, Jugador::class, Partido::class, TablaLiga::class, Jornada::class],
-    version = 5
+    entities = [Equipo::class, Jugador::class, Partido::class, Jornada::class],
+    version = 6
 )
 abstract class AppDatabase : RoomDatabase() {
 
     abstract val equipoDao: EquipoDAO
     abstract val jugadorDao: JugadorDAO
     abstract val partidoDao: PartidoDAO
-    abstract val tablaLigaDao: TablaLigaDAO
     abstract val jornadaDao: JornadaDAO
 
     companion object {
