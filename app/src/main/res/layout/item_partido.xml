@@ -11,27 +11,29 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text="Equipo Local"
+        android:text="@string/equipo_local"
         android:textSize="16sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:textColor="@color/white"/>
 
     <TextView
         android:id="@+id/textViewResultado"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="vs"
+        android:text="@string/vs"
         android:textSize="16sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:textColor="@color/white"/>
 
     <TextView
         android:id="@+id/textViewNombreVisitante"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text="Equipo Visitante"
+        android:text="@string/equipo_visitante"
         android:textSize="16sp"
         android:textStyle="bold"
-        android:gravity="end" />
+        android:gravity="end"
+        android:textColor="@color/white"/>
 
 </LinearLayout>
-

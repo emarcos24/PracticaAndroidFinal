@@ -27,7 +27,7 @@
             android:layout_width="0dp"
             android:layout_height="50dp"
             android:layout_weight="1"
-            android:text="Temporada 24/25"
+            android:text="@string/temporada_actual"
             android:textAlignment="center"
             android:textColor="@color/white"
             android:paddingTop="15dp"/>
@@ -55,18 +55,17 @@
             android:src="@drawable/baseline_arrow_back_ios_24"
             android:paddingBottom="10dp"
             android:paddingLeft="60dp"
-            android:contentDescription="Anterior jornada"/>
+            android:contentDescription="@string/anterior_jornada"/>
 
         <TextView
             android:id="@+id/textViewJornada"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
-            android:text="Jornada 1"
+            android:text="@string/jornada_1"
             android:paddingTop="10dp"
             android:textColor="@color/black"
             android:layout_weight="1"
             android:textAlignment="center"/>
-
 
         <ImageButton
             android:id="@+id/imageButton2"
@@ -78,7 +77,7 @@
             android:layout_weight="1"
             android:paddingBottom="10dp"
             android:paddingRight="60dp"
-            android:contentDescription="Siguiente jornada"/>
+            android:contentDescription="@string/siguiente_jornada"/>
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
@@ -87,5 +86,4 @@
         android:layout_height="wrap_content"
         android:paddingTop="10dp"
         android:nestedScrollingEnabled="false"/>
-
 </LinearLayout>

@@ -8,18 +8,18 @@
     <EditText
         android:id="@+id/editTextNombre"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Nombre del equipo" />
+        android:layout_height="48dp"
+        android:hint="@string/hint_nombre_equipo" />
 
     <EditText
         android:id="@+id/editTextManager"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Entrenador" />
+        android:layout_height="48dp"
+        android:hint="@string/hint_entrenador" />
 
     <Spinner
         android:id="@+id/spinnerLogos"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:layout_marginTop="10dp" />
 </LinearLayout>

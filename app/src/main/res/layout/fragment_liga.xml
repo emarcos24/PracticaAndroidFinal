@@ -27,7 +27,7 @@
             android:layout_width="0dp"
             android:layout_height="50dp"
             android:layout_weight="1"
-            android:text="Temporada 24/25"
+            android:text="@string/temporada_actual"
             android:textAlignment="center"
             android:textColor="@color/white"
             android:paddingTop="15dp"/>

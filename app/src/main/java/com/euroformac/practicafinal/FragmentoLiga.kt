@@ -35,8 +35,6 @@ class FragmentoLiga : Fragment(R.layout.fragment_liga) {
         recyclerViewEquipos.layoutManager = GridLayoutManager(requireContext(), 3)
         cargarEquipos()
 
-
-
         return view
     }
 

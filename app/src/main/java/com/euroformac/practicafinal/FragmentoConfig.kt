@@ -1,5 +1,7 @@
 package com.euroformac.practicafinal
 
+import android.content.Context
+import android.content.res.Configuration
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -10,12 +12,9 @@ import android.widget.Button
 import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
 import androidx.room.Room
-import com.euroformac.practicafinal.room.AppDatabase
-import com.euroformac.practicafinal.room.Equipo
-import com.euroformac.practicafinal.room.Jornada
-import com.euroformac.practicafinal.room.Jugador
-import com.euroformac.practicafinal.room.Partido
+import com.euroformac.practicafinal.room.*
 import kotlinx.coroutines.launch
+import java.util.Locale
 
 class FragmentoConfig : Fragment() {
 
@@ -91,8 +90,9 @@ class FragmentoConfig : Fragment() {
             dialogoBorrarPartido.show(parentFragmentManager, "DialogoBorrarPartido")
         }
 
+        // Configurar botón de idioma con alternancia
         botonIdioma.setOnClickListener {
-            // Acción para cambiar idioma
+            alternarIdioma()
         }
     }
 
@@ -147,7 +147,6 @@ class FragmentoConfig : Fragment() {
             // Verificar si la jornada ya existe
             var jornada = jornadaDao.getJornadaById(jornadaId)
             if (jornada == null) {
-                // Si no existe, la creamos y guardamos
                 jornada = Jornada(id = jornadaId, numeroJornada = jornadaId)
                 jornadaDao.insertarJornada(jornada)
                 Log.d("RoomDebug", "Jornada creada con ID: $jornadaId")
@@ -173,8 +172,7 @@ class FragmentoConfig : Fragment() {
 
             try {
                 roomDB.partidoDao.insertarPartido(partido)
-                Toast.makeText(requireContext(), "Partido guardado con éxito", Toast.LENGTH_SHORT)
-                    .show()
+                Toast.makeText(requireContext(), "Partido guardado con éxito", Toast.LENGTH_SHORT).show()
             } catch (e: Exception) {
                 Log.e("RoomError", "Error al guardar el partido", e)
             }
@@ -185,5 +183,30 @@ class FragmentoConfig : Fragment() {
         val database = roomDB
         val equipoDao = database.equipoDao
         return equipoDao.obtenerEquipos().map { it.nombre }
+    }
+
+    // Función para alternar el idioma entre español e inglés
+    private fun alternarIdioma() {
+        val sharedPreferences = requireActivity().getSharedPreferences("config", Context.MODE_PRIVATE)
+        val idiomaActual = sharedPreferences.getString("idioma", "es") // Español por defecto
+        val nuevoIdioma = if (idiomaActual == "es") "en" else "es" // Alternar entre "es" y "en"
+
+        // Guardar el nuevo idioma en SharedPreferences
+        sharedPreferences.edit().putString("idioma", nuevoIdioma).apply()
+
+        // Aplicar el cambio de idioma
+        cambiarIdioma(nuevoIdioma)
+    }
+
+    private fun cambiarIdioma(localeCode: String) {
+        val locale = Locale(localeCode)
+        Locale.setDefault(locale)
+
+        val config = Configuration(requireContext().resources.configuration)
+        config.setLocale(locale)
+
+        requireContext().resources.updateConfiguration(config, requireContext().resources.displayMetrics)
+
+        requireActivity().recreate() // Recargar la actividad para aplicar cambios
     }
 }

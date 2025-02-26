@@ -10,7 +10,7 @@
         android:id="@+id/textoNombreJugador"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Nombre del Jugador"
+        android:text="@string/nombre_jugador"
         android:textSize="18sp"
         android:textStyle="bold"
         android:textColor="@color/white"/>
@@ -19,7 +19,7 @@
         android:id="@+id/textoPosicionJugador"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Posición"
+        android:text="@string/posicion_jugador"
         android:textSize="16sp"
         android:textColor="@color/white"/>
 
@@ -27,7 +27,7 @@
         android:id="@+id/textoNumeroJugador"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Dorsal"
+        android:text="@string/numero_jugador"
         android:textSize="16sp"
         android:textColor="@color/white"/>
 </LinearLayout>

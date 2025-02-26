@@ -9,7 +9,7 @@
         android:id="@+id/et_jornada"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:hint="Número de jornada"
+        android:hint="@string/hint_numero_jornada"
         android:inputType="number"/>
 
     <Spinner
@@ -28,15 +28,15 @@
         android:id="@+id/switch_jugado"
         android:layout_width="wrap_content"
         android:layout_height="48dp"
-        android:text="¿Partido jugado?"
-        android:textOn="Sí"
-        android:textOff="No"/>
+        android:text="@string/texto_partido_jugado"
+        android:textOn="@string/texto_si"
+        android:textOff="@string/texto_no"/>
 
     <EditText
         android:id="@+id/tv_fecha"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:hint="Seleccionar fecha"
+        android:hint="@string/hint_seleccionar_fecha"
         android:focusable="false"
         android:clickable="true"/>
 
@@ -52,7 +52,7 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:hint="Puntos local"
+            android:hint="@string/hint_puntos_local"
             android:inputType="number" />
 
         <EditText
@@ -60,7 +60,7 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:hint="Puntos visitante"
+            android:hint="@string/hint_puntos_visitante"
             android:inputType="number" />
     </LinearLayout>
 

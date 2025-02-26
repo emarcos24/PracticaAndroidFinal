@@ -16,7 +16,7 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_marginStart="10dp"
-        android:text="Nombre del equipo"
+        android:text="@string/nombre_equipo"
         android:textSize="18sp"
         android:textColor="@android:color/black"/>
 </LinearLayout>
