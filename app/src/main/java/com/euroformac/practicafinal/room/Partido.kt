@@ -19,8 +19,17 @@ data class Partido(
     @PrimaryKey(autoGenerate = true) val id: Int = 0,
     @ColumnInfo(name = "localId") val localId: Int,
     @ColumnInfo(name = "visitanteId") val visitanteId: Int,
-    @ColumnInfo(name = "marcadorLocal") val marcadorLocal: Int = 0,
-    @ColumnInfo(name = "marcadorVisitante") val marcadorVisitante: Int = 0,
     @ColumnInfo(name = "fecha") val fecha: String,
-    @ColumnInfo(name = "jornadaId") val jornadaId: Int
-)
+    @ColumnInfo(name = "jornadaId") val jornadaId: Int,
+    @ColumnInfo(name = "jugado") val jugado: Boolean = false,
+    @ColumnInfo(name = "puntosLocal") val puntosLocal: Int? = null,
+    @ColumnInfo(name = "puntosVisitante") val puntosVisitante: Int? = null
+) {
+    val resultadoPartido: String
+        get() = if (jugado) {
+            "$puntosLocal - $puntosVisitante"
+        } else {
+            fecha
+        }
+
+}

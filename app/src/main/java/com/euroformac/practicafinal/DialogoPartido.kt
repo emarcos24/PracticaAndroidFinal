@@ -20,7 +20,10 @@ class DialogoPartido(
             equipoLocal: String,
             equipoVisitante: String,
             fecha: String,
-            jornadaId: Int
+            jornadaId: Int,
+            jugado: Boolean,
+            puntosLocal: Int?,
+            puntosVisitante: Int?
         )
     }
 
@@ -89,22 +92,20 @@ class DialogoPartido(
                 val equipoVisitante = spinnerVisitante.selectedItem.toString()
                 val fecha = editTextFecha.text.toString()
                 val jornadaStr = editTextJornada.text.toString()
+                val jugado = switchJugado.isChecked
 
                 if (equipoLocal == "Selecciona equipo..." || equipoVisitante == "Selecciona equipo...") {
-                    Toast.makeText(context, "Debes seleccionar ambos equipos", Toast.LENGTH_SHORT)
-                        .show()
+                    Toast.makeText(context, "Debes seleccionar ambos equipos", Toast.LENGTH_SHORT).show()
                     return@setOnClickListener
                 }
 
                 if (equipoLocal == equipoVisitante) {
-                    Toast.makeText(context, "Los equipos no pueden ser iguales", Toast.LENGTH_SHORT)
-                        .show()
+                    Toast.makeText(context, "Los equipos no pueden ser iguales", Toast.LENGTH_SHORT).show()
                     return@setOnClickListener
                 }
 
                 if (fecha.isEmpty()) {
-                    Toast.makeText(context, "Debes seleccionar una fecha", Toast.LENGTH_SHORT)
-                        .show()
+                    Toast.makeText(context, "Debes seleccionar una fecha", Toast.LENGTH_SHORT).show()
                     return@setOnClickListener
                 }
 
@@ -114,8 +115,22 @@ class DialogoPartido(
                     return@setOnClickListener
                 }
 
+                // Capturar los puntos solo si el partido fue jugado
+                val puntosLocal = if (jugado) {
+                    view.findViewById<EditText>(R.id.et_puntos_local).text.toString().toIntOrNull()
+                } else null
+
+                val puntosVisitante = if (jugado) {
+                    view.findViewById<EditText>(R.id.et_puntos_visitante).text.toString().toIntOrNull()
+                } else null
+
+                if (jugado && (puntosLocal == null || puntosVisitante == null)) {
+                    Toast.makeText(context, "Debes ingresar los puntos de ambos equipos", Toast.LENGTH_SHORT).show()
+                    return@setOnClickListener
+                }
+
                 // Enviar los datos al listener
-                listener.onPartidoCreado(equipoLocal, equipoVisitante, fecha, jornadaId)
+                listener.onPartidoCreado(equipoLocal, equipoVisitante, fecha, jornadaId, jugado, puntosLocal, puntosVisitante)
                 dialog.dismiss()
             }
         }

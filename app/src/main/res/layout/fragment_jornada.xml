@@ -32,7 +32,6 @@
             android:textColor="@color/white"
             android:paddingTop="15dp"/>
 
-        <!-- Imagen del equipo favorito que el usuario elige -->
         <ImageView
             android:id="@+id/imageView2"
             android:layout_width="100dp"
@@ -55,16 +54,19 @@
             android:paddingTop="10dp"
             android:src="@drawable/baseline_arrow_back_ios_24"
             android:paddingBottom="10dp"
-            android:paddingLeft="60dp" />
+            android:paddingLeft="60dp"
+            android:contentDescription="Anterior jornada"/>
 
         <TextView
+            android:id="@+id/textViewJornada"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
-            android:text="Jornada X"
+            android:text="Jornada 1"
             android:paddingTop="10dp"
             android:textColor="@color/black"
             android:layout_weight="1"
             android:textAlignment="center"/>
+
 
         <ImageButton
             android:id="@+id/imageButton2"
@@ -75,261 +77,15 @@
             android:paddingTop="10dp"
             android:layout_weight="1"
             android:paddingBottom="10dp"
-            android:paddingRight="60dp"/>
+            android:paddingRight="60dp"
+            android:contentDescription="Siguiente jornada"/>
     </LinearLayout>
 
-    <ScrollView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewPartidos"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fillViewport="true">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TableLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center">
-
-                    <ImageView
-                        android:id="@+id/imageViewBarca"
-                        android:layout_width="120dp"
-                        android:layout_height="120dp"
-                        android:src="@drawable/logobarca"
-                        android:contentDescription="Logo del Barsa"/>
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="50dp"
-                        android:layout_weight="1"
-                        android:text="Partido1"
-                        android:textAlignment="center"
-                        android:textColor="@color/white" />
-
-                    <ImageView
-                        android:id="@+id/imageViewGirona"
-                        android:layout_width="120dp"
-                        android:layout_height="120dp"
-                        android:src="@drawable/logogirona" />
-                </TableRow>
-
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center">
-
-                    <ImageView
-                        android:id="@+id/imageViewBaxi"
-                        android:layout_width="120dp"
-                        android:layout_height="120dp"
-                        android:src="@drawable/logobaxi" />
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="50dp"
-                        android:layout_weight="1"
-                        android:text="Partido2"
-                        android:textAlignment="center"
-                        android:textColor="@color/white" />
-
-                    <ImageView
-                        android:id="@+id/imageViewGranada"
-                        android:layout_width="120dp"
-                        android:layout_height="120dp"
-                        android:src="@drawable/logogranada" />
-                </TableRow>
-
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center">
-
-                    <ImageView
-                        android:id="@+id/imageViewGranCanaria"
-                        android:layout_width="120dp"
-                        android:layout_height="120dp"
-                        android:src="@drawable/logograncanaria" />
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="50dp"
-                        android:layout_weight="1"
-                        android:text="Partido3"
-                        android:textAlignment="center"
-                        android:textColor="@color/white" />
-
-                    <ImageView
-                        android:id="@+id/imageViewBadalona"
-                        android:layout_width="120dp"
-                        android:layout_height="120dp"
-                        android:src="@drawable/logobadalona" />
-                </TableRow>
-
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center">
-
-                    <ImageView
-                        android:id="@+id/imageViewTenerife"
-                        android:layout_width="120dp"
-                        android:layout_height="120dp"
-                        android:src="@drawable/logotenerife" />
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="50dp"
-                        android:layout_weight="1"
-                        android:text="Partido4"
-                        android:textAlignment="center"
-                        android:textColor="@color/white" />
-
-                    <ImageView
-                        android:id="@+id/imageViewAndorra"
-                        android:layout_width="120dp"
-                        android:layout_height="120dp"
-                        android:src="@drawable/logoandorra" />
-                </TableRow>
-
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center">
-
-                    <ImageView
-                        android:id="@+id/imageViewMadrid"
-                        android:layout_width="120dp"
-                        android:layout_height="120dp"
-                        android:src="@drawable/logomadrid" />
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="50dp"
-                        android:layout_weight="3"
-                        android:text="Partido5"
-                        android:textAlignment="center"
-                        android:textColor="@color/white" />
-
-                    <ImageView
-                        android:id="@+id/imageView16"
-                        android:layout_width="120dp"
-                        android:layout_height="120dp"
-                        android:src="@drawable/logobilbao" />
-                </TableRow>
-
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center">
-
-                    <ImageView
-                        android:id="@+id/imageViewMurcia"
-                        android:layout_width="120dp"
-                        android:layout_height="120dp"
-                        android:src="@drawable/logomurcia" />
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="50dp"
-                        android:layout_weight="1"
-                        android:text="Partido6"
-                        android:textAlignment="center"
-                        android:textColor="@color/white" />
-
-                    <ImageView
-                        android:id="@+id/imageViewTeam3"
-                        android:layout_width="120dp"
-                        android:layout_height="120dp"
-                        android:src="@drawable/logovalencia" />
-                </TableRow>
-
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center">
-
-                    <ImageView
-                        android:id="@+id/imageViewej1"
-                        android:layout_width="120dp"
-                        android:layout_height="120dp"
-                        android:src="@drawable/logomurcia" />
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="50dp"
-                        android:layout_weight="1"
-                        android:text="Partido7"
-                        android:textAlignment="center"
-                        android:textColor="@color/white" />
-
-                    <ImageView
-                        android:id="@+id/imageViewej2"
-                        android:layout_width="120dp"
-                        android:layout_height="120dp"
-                        android:src="@drawable/logovalencia" />
-                </TableRow>
-
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center">
-
-                    <ImageView
-                        android:id="@+id/imageViewej3"
-                        android:layout_width="120dp"
-                        android:layout_height="120dp"
-                        android:src="@drawable/logomurcia" />
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="50dp"
-                        android:layout_weight="1"
-                        android:text="Partido7"
-                        android:textAlignment="center"
-                        android:textColor="@color/white" />
-
-                    <ImageView
-                        android:id="@+id/imageViewej4"
-                        android:layout_width="120dp"
-                        android:layout_height="120dp"
-                        android:src="@drawable/logovalencia" />
-                </TableRow>
-
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center">
-
-                    <ImageView
-                        android:id="@+id/imageViewej5"
-                        android:layout_width="120dp"
-                        android:layout_height="120dp"
-                        android:src="@drawable/logomurcia" />
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="50dp"
-                        android:layout_weight="1"
-                        android:text="Partido9"
-                        android:textAlignment="center"
-                        android:textColor="@color/white" />
-
-                    <ImageView
-                        android:id="@+id/imageViewej6"
-                        android:layout_width="120dp"
-                        android:layout_height="120dp"
-                        android:src="@drawable/logovalencia" />
-                </TableRow>
-
-            </TableLayout>
-        </LinearLayout>
-
-    </ScrollView>
+        android:paddingTop="10dp"
+        android:nestedScrollingEnabled="false"/>
 
 </LinearLayout>

@@ -1,20 +1,16 @@
 package com.euroformac.practicafinal
 
-import android.app.AlertDialog
-import android.app.DatePickerDialog
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ArrayAdapter
-import android.widget.Button
-import android.widget.EditText
-import android.widget.LinearLayout
-import android.widget.Spinner
-import android.widget.Switch
+import android.widget.ImageButton
 import android.widget.TextView
-import android.widget.Toast
+import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.euroformac.practicafinal.room.AppDatabase
 import com.euroformac.practicafinal.room.Partido
 import kotlinx.coroutines.CoroutineScope
@@ -22,57 +18,64 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [FragmentoJornada.newInstance] factory method to
- * create an instance of this fragment.
- */
 class FragmentoJornada : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-    private lateinit var database: AppDatabase // Reemplaza con el nombre de tu BD
 
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var adapter: PartidosAdapter
+    private lateinit var database: AppDatabase
+    private var jornadaActual = 1 // Jornada por defecto
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        val view = inflater.inflate(R.layout.fragment_jornada, container, false)
+
         database = AppDatabase.getDatabase(requireContext())
-        return inflater.inflate(R.layout.fragment_jornada, container, false)
-    }
 
+        recyclerView = view.findViewById(R.id.recyclerViewPartidos)
+        recyclerView.layoutManager = LinearLayoutManager(context)
+        recyclerView.setHasFixedSize(true)
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment fragmentoJornada.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            FragmentoJornada().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+        val botonAnterior: ImageButton = view.findViewById(R.id.imageButton)
+        val botonSiguiente: ImageButton = view.findViewById(R.id.imageButton2)
+        val textViewJornada: TextView = view.findViewById(R.id.textViewJornada)
+
+        // Cargar la jornada inicial
+        cargarPartidos(jornadaActual)
+
+        // Botón para ir a la jornada anterior
+        botonAnterior.setOnClickListener {
+            if (jornadaActual > 1) {
+                jornadaActual--
+                cargarPartidos(jornadaActual)
+                textViewJornada.text = "Jornada $jornadaActual"
+            }
+        }
+
+        // Botón para ir a la jornada siguiente
+        botonSiguiente.setOnClickListener {
+            lifecycleScope.launch {
+                val existeJornada = database.jornadaDao.existeJornada(jornadaActual + 1)
+                if (existeJornada) {
+                    jornadaActual++
+                    cargarPartidos(jornadaActual)
+                    textViewJornada.text = "Jornada $jornadaActual"
                 }
             }
+        }
+
+        return view
+    }
+
+    private fun cargarPartidos(jornada: Int) {
+        CoroutineScope(Dispatchers.IO).launch {
+            val listaPartidosConEquipos = database.partidoDao.obtenerPartidosPorJornada(jornada)
+
+            withContext(Dispatchers.Main) {
+                adapter = PartidosAdapter(listaPartidosConEquipos)
+                recyclerView.adapter = adapter
+            }
+        }
     }
 }

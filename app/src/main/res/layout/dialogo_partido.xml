@@ -5,7 +5,6 @@
     android:orientation="vertical"
     android:padding="16dp">
 
-    <!-- Jornada -->
     <EditText
         android:id="@+id/et_jornada"
         android:layout_width="match_parent"
@@ -13,14 +12,12 @@
         android:hint="Número de jornada"
         android:inputType="number"/>
 
-    <!-- Spinner de equipo local -->
     <Spinner
         android:id="@+id/spinner_local"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:prompt="@string/prompt_equipo_local"/>
 
-    <!-- Spinner de equipo visitante -->
     <Spinner
         android:id="@+id/spinner_visitante"
         android:layout_width="match_parent"
@@ -31,7 +28,9 @@
         android:id="@+id/switch_jugado"
         android:layout_width="wrap_content"
         android:layout_height="48dp"
-        android:text="¿Partido jugado?" />
+        android:text="¿Partido jugado?"
+        android:textOn="Sí"
+        android:textOff="No"/>
 
     <EditText
         android:id="@+id/tv_fecha"
@@ -41,7 +40,6 @@
         android:focusable="false"
         android:clickable="true"/>
 
-    <!-- Puntos de cada equipo (se muestra si el switch está activado) -->
     <LinearLayout
         android:id="@+id/layout_puntos"
         android:layout_width="match_parent"

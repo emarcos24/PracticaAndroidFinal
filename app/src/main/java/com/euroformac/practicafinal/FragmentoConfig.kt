@@ -17,16 +17,6 @@ import com.euroformac.practicafinal.room.Jugador
 import com.euroformac.practicafinal.room.Partido
 import kotlinx.coroutines.launch
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [FragmentoConfig.newInstance] factory method to
- * create an instance of this fragment.
- */
 class FragmentoConfig : Fragment() {
 
     private lateinit var roomDB: AppDatabase
@@ -64,12 +54,12 @@ class FragmentoConfig : Fragment() {
             dialogo.show(parentFragmentManager, "DialogoEquipo")
         }
 
-
         botonBorrarEquipo.setOnClickListener {
-            val dialogoBorrar = DialogoBorrarEquipo(object : DialogoBorrarEquipo.OnEquipoBorradoListener {
-                override fun onEquipoBorrado() {
-                }
-            })
+            val dialogoBorrar =
+                DialogoBorrarEquipo(object : DialogoBorrarEquipo.OnEquipoBorradoListener {
+                    override fun onEquipoBorrado() {
+                    }
+                })
             dialogoBorrar.show(parentFragmentManager, "DialogoBorrarEquipo")
         }
 
@@ -77,8 +67,16 @@ class FragmentoConfig : Fragment() {
             lifecycleScope.launch {
                 val equipos = obtenerEquiposDesdeBD()
                 val dialogo = DialogoPartido(equipos, object : DialogoPartido.OnPartidoListener {
-                    override fun onPartidoCreado(equipoLocal: String, equipoVisitante: String, fecha: String, jornadaId: Int) {
-                        guardarPartidoEnRoom(equipoLocal, equipoVisitante, fecha, jornadaId)
+                    override fun onPartidoCreado(
+                        equipoLocal: String,
+                        equipoVisitante: String,
+                        fecha: String,
+                        jornadaId: Int,
+                        jugado: Boolean,
+                        puntosLocal: Int?,
+                        puntosVisitante: Int?
+                    ) {
+                        guardarPartidoEnRoom(equipoLocal, equipoVisitante, fecha, jornadaId, jugado, puntosLocal, puntosVisitante)
                     }
                 })
                 dialogo.show(parentFragmentManager, "DialogoPartido")
@@ -86,7 +84,12 @@ class FragmentoConfig : Fragment() {
         }
 
         botonBorrarPartido.setOnClickListener {
-            // Acción para borrar partido
+            val dialogoBorrarPartido =
+                DialogoBorrarPartido(object : DialogoBorrarPartido.OnPartidoBorradoListener {
+                    override fun onPartidoBorrado() {
+                    }
+                })
+            dialogoBorrarPartido.show(parentFragmentManager, "DialogoBorrarPartido")
         }
 
         botonMiEquipo.setOnClickListener {
@@ -96,19 +99,29 @@ class FragmentoConfig : Fragment() {
         botonIdioma.setOnClickListener {
             // Acción para cambiar idioma
         }
-
     }
 
     private fun abrirDialogoJugadores(nombre: String, manager: String, logo: String) {
-        val dialogo = DialogoJugadores(nombre, manager, logo, object : DialogoJugadores.OnJugadoresListener {
-            override fun onJugadoresCompletados(nombreEquipo: String, manager: String, logo: String, jugadores: List<Jugador>) {
-                guardarEquipoEnRoom(nombreEquipo, manager, logo, jugadores)
-            }
-        })
+        val dialogo =
+            DialogoJugadores(nombre, manager, logo, object : DialogoJugadores.OnJugadoresListener {
+                override fun onJugadoresCompletados(
+                    nombreEquipo: String,
+                    manager: String,
+                    logo: String,
+                    jugadores: List<Jugador>
+                ) {
+                    guardarEquipoEnRoom(nombreEquipo, manager, logo, jugadores)
+                }
+            })
         dialogo.show(parentFragmentManager, "DialogoJugadores")
     }
 
-    private fun guardarEquipoEnRoom(nombre: String, manager: String, logo: String, jugadores: List<Jugador>) {
+    private fun guardarEquipoEnRoom(
+        nombre: String,
+        manager: String,
+        logo: String,
+        jugadores: List<Jugador>
+    ) {
         lifecycleScope.launch {
             val equipo = Equipo(nombre = nombre, manager = manager, logo = logo)
             val equipoId = roomDB.equipoDao.insertarEquipo(equipo).toInt()
@@ -120,7 +133,15 @@ class FragmentoConfig : Fragment() {
         }
     }
 
-    private fun guardarPartidoEnRoom(equipoLocal: String, equipoVisitante: String, fecha: String, jornadaId: Int) {
+    private fun guardarPartidoEnRoom(
+        equipoLocal: String,
+        equipoVisitante: String,
+        fecha: String,
+        jornadaId: Int,
+        jugado: Boolean,
+        puntosLocal: Int?,
+        puntosVisitante: Int?
+    ) {
         lifecycleScope.launch {
             val equipoDao = roomDB.equipoDao
             val jornadaDao = roomDB.jornadaDao
@@ -138,7 +159,10 @@ class FragmentoConfig : Fragment() {
             }
 
             if (local == null || visitante == null) {
-                Log.e("RoomError", "Error: Clave foránea no encontrada (localId=${local?.id}, visitanteId=${visitante?.id}, jornadaId=${jornada.id})")
+                Log.e(
+                    "RoomError",
+                    "Error: Clave foránea no encontrada (localId=${local?.id}, visitanteId=${visitante?.id}, jornadaId=${jornada.id})"
+                )
                 return@launch
             }
 
@@ -147,27 +171,24 @@ class FragmentoConfig : Fragment() {
                 visitanteId = visitante.id,
                 fecha = fecha,
                 jornadaId = jornada.id,
-                marcadorLocal = 0,
-                marcadorVisitante = 0
+                jugado = jugado,
+                puntosLocal = puntosLocal ?: 0,
+                puntosVisitante = puntosVisitante ?: 0
             )
 
             try {
                 roomDB.partidoDao.insertarPartido(partido)
-                Toast.makeText(requireContext(), "Partido guardado con éxito", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), "Partido guardado con éxito", Toast.LENGTH_SHORT)
+                    .show()
             } catch (e: Exception) {
                 Log.e("RoomError", "Error al guardar el partido", e)
             }
         }
     }
 
-
     private suspend fun obtenerEquiposDesdeBD(): List<String> {
         val database = roomDB
         val equipoDao = database.equipoDao
         return equipoDao.obtenerEquipos().map { it.nombre }
     }
-
-
-
-
 }

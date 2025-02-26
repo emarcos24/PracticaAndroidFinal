@@ -23,4 +23,7 @@ interface JornadaDAO {
 
     @Query("SELECT * FROM jornadas WHERE id = :jornadaId LIMIT 1")
     suspend fun getJornadaById(jornadaId: Int): Jornada
+
+    @Query("SELECT EXISTS (SELECT 1 FROM jornadas WHERE id = :jornada)")
+    suspend fun existeJornada(jornada: Int): Boolean
 }
